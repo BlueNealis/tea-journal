@@ -4,6 +4,8 @@ import './App.css';
 import TeaCard from './components/TeaCard/TeaCard'
 import NavBar from './components/NavBar/NavBar'
 import HomePage from './components/HomePage'
+import Teasperiences from './components/Teasperiences/Teasperiences'
+import JournalEntry from './components/Teasperiences/'
 import {Link, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -32,6 +34,8 @@ render(){
     <div className= 'wrapper'>
       <NavBar />
       <main>
+        <JournalEntry tea={teainfo}/>
+        <Teasperiences />
         <HomePage
         title='Welcome To Tea Journal'
         sub='Lets Learn About Tea'
