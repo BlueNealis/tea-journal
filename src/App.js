@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import './App.css';
 import TeaCard from './components/TeaCard/TeaCard'
 import NavBar from './components/NavBar/NavBar'
+import HomePage from './components/HomePage'
+import 
 
 class App extends Component {
   constructor() {
@@ -30,16 +32,14 @@ render(){
     <div className= 'wrapper'>
       <NavBar />
       <main>
-        <h1 className='title'>Welcome To Tea Journal</h1>
-        <h2 className= 'title'>Let's Learn About Tea</h2>
-        <div className='card-container'>
-          {!this.state.teaCards && <h1>..Loading</h1>}
-          {this.state.teaCards}
-        </div>
+        <HomePage
+        title='Welcome To Tea Journal'
+        sub='Lets Learn About Tea'
+        content={this.state.teaCards}
+        />
       </main>
     </div>
   )
-
 }
 }
 
