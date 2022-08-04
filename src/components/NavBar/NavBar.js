@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ButtonTab from './ButtonTab'
+import './NavBar.css'
 
 export default class NavBar extends Component {
   constructor(){

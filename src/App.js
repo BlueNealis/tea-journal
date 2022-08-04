@@ -27,12 +27,16 @@ class App extends Component {
 
 render(){
   return (
-    <div>
+    <div className= 'wrapper'>
       <NavBar />
-      <div className='card-container'>
-        {!this.state.teaCards && <h1>..Loading</h1>}
-        {this.state.teaCards}
-      </div>
+      <main>
+        <h1 className='title'>Welcome To Tea Journal</h1>
+        <h2 className= 'title'>Let's Learn About Tea</h2>
+        <div className='card-container'>
+          {!this.state.teaCards && <h1>..Loading</h1>}
+          {this.state.teaCards}
+        </div>
+      </main>
     </div>
   )
 
