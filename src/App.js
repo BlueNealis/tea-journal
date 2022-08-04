@@ -4,7 +4,7 @@ import './App.css';
 import TeaCard from './components/TeaCard/TeaCard'
 import NavBar from './components/NavBar/NavBar'
 import HomePage from './components/HomePage'
-import 
+import {Link, Route} from 'react-router-dom'
 
 class App extends Component {
   constructor() {
