@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import React, { Component } from 'react'
 import './App.css';
-import TeaCard from './components/TeaCard/TeaCard.js'
+import TeaCard from './components/TeaCard/TeaCard'
+import NavBar from './components/NavBar/NavBar'
 
 class App extends Component {
   constructor() {
@@ -26,9 +27,12 @@ class App extends Component {
 
 render(){
   return (
-    <div className='card-container'>
-      {!this.state.teaCards && <h1>..Loading</h1>}
-      {this.state.teaCards}
+    <div>
+      <NavBar />
+      <div className='card-container'>
+        {!this.state.teaCards && <h1>..Loading</h1>}
+        {this.state.teaCards}
+      </div>
     </div>
   )
 
