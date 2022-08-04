@@ -1,3 +1,8 @@
 .nav-button {
   background-color: #88AD8C;
+  border-color: #4D6950;
+  border-left-width: 0;
+  border-right-width: 0;
+  height: 10%;
+  width: 100%;
 }

@@ -10,6 +10,7 @@ export default class NavBar extends Component {
   }
   render(){
     return(<header>
+        <h1 className='home'>HOME</h1>
         <ButtonTab title='My Teasperiences'/>
         <ButtonTab title='My Favorite Teas'/>
         <ButtonTab title='How To - A Guide to Brewing Tea'/>
