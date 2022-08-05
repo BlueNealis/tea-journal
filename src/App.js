@@ -13,11 +13,12 @@ class App extends Component {
     super()
     this.state = {
       teaCards: [],
-      teaData: []
+      teaData: [],
+      entryInfo: {}
     }
   }
 
-   componentDidMount() {
+  componentDidMount() {
 
     fetch('https://tea-list-api.herokuapp.com/api/v1/teas')
     .then(resource => resource.json())
@@ -29,14 +30,18 @@ class App extends Component {
     })
   }
 
+  handleSubmit = (event, entryInfo) => {
+    event.preventDefault()
+  }
+
 
 render(){
   return (
     <div className= 'wrapper'>
       <NavBar />
       <main>
-        {this.state.teaData && <JournalEntry teas={this.state.teaData}/>}
-        <Teasperiences />
+        {this.state.teaData && <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>}
+        <Teasperiences newEntry={this.state.entryInfo}/>
         <HomePage
         title='Welcome To Tea Journal'
         sub='Lets Learn About Tea'

@@ -35,7 +35,10 @@ export default class JournalEntry extends Component {
     return(
       <form>
         <h1>{this.state.teaType} Experience</h1>
-        <input  name='date' value={this.state.date} onChange={this.handleChange} type='date'/>
+        <input  name='date'
+        value={this.state.date}
+        onChange={this.handleChange}
+        type='date'/>
         <label>Tea Type: </label>
         <select onChange={this.handleChange} value={this.state.teaType}
         name='teaType' id='tea-select'>
@@ -44,8 +47,7 @@ export default class JournalEntry extends Component {
         </select>
         <input name='experience' value={this.state.experience} onChange={this.handleChange} type='text' placeholder='The Experience'></input>
         <input name='flavorNotes' value={this.state.flavorNotes} onChange={this.handleChange} type='text' placeholder='flavor notes'></input>
-        <button>Upload Picture</button>
-        <button>Submit</button>
+        <button onClick={() => this.props.handleSubmit({this.state})}>Submit</button>
       </form> )
   }
 }
