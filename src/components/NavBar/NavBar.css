@@ -1,0 +1,12 @@
+header {
+  background-color: #5C8260;
+  width: 20%;
+  height: 100vh;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+}
+
+.home {
+  margin-bottom: 30%;
+}

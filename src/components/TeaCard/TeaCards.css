@@ -1,0 +1,13 @@
+.tea-card {
+  background-image: url('./texture-paper.jpeg');
+  width: 100%;
+  height: 30vh;
+  border-radius: 2%;
+  text-align: center;
+  padding: 2%;
+
+}
+
+.tea-card:hover {
+  cursor: pointer;
+}
