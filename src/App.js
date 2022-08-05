@@ -25,9 +25,7 @@ class App extends Component {
       let cards = data.teas.map((tea) => {
           return <TeaCard name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
       })
-      this.setState({teaCards: cards,
-                      teaData: data})
-
+      this.setState({teaCards: cards, teaData: data.teas})
     })
   }
 
@@ -37,7 +35,7 @@ render(){
     <div className= 'wrapper'>
       <NavBar />
       <main>
-        <JournalEntry teas={this.teaData}/>
+        {this.state.teaData && <JournalEntry teas={this.state.teaData}/>}
         <Teasperiences />
         <HomePage
         title='Welcome To Tea Journal'
