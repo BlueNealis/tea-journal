@@ -6,8 +6,18 @@ export default class JournalEntry extends Component {
     super()
     this.state = {
       teaNames: null,
+      experience:'',
+      flavorNotes:'',
+      teaType:'',
+      date:'',
     }
   }
+
+  handleChange = (event) => {
+    const {name, value} = event.target
+    this.setState({[name]: value})
+  }
+
   setTeas = (teas) => {
     this.setState({teaNames: teas})
   }
@@ -21,19 +31,19 @@ export default class JournalEntry extends Component {
         }
       }
 
-
-
   render(){
     return(
       <form>
-        <input type='date'/>
+        <h1>{this.state.teaType} Experience</h1>
+        <input  name='date' value={this.state.date} onChange={this.handleChange} type='date'/>
         <label>Tea Type: </label>
-        <select name='teas' id='tea-select'>
+        <select onChange={this.handleChange} value={this.state.teaType}
+        name='teaType' id='tea-select'>
           <option>Pick a Tea</option>
           {this.state.teaNames}
         </select>
-        <input type='text' placeholder='The Experience'></input>
-        <input type='text' placeholder='flavor notes'></input>
+        <input name='experience' value={this.state.experience} onChange={this.handleChange} type='text' placeholder='The Experience'></input>
+        <input name='flavorNotes' value={this.state.flavorNotes} onChange={this.handleChange} type='text' placeholder='flavor notes'></input>
         <button>Upload Picture</button>
         <button>Submit</button>
       </form> )
