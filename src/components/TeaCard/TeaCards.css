@@ -11,3 +11,9 @@
 .tea-card:hover {
   cursor: pointer;
 }
+
+.entry-button {
+  border: none;
+  padding: 5%;
+  margin-left: 45%;
+}

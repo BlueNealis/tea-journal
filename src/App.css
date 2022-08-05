@@ -9,6 +9,17 @@ html {
   text-align: center;
 }
 
+button {
+  background-color: #88AD8C;
+
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #A9D8AE;
+
+}
+
 .wrapper {
   display: flex;
 }
