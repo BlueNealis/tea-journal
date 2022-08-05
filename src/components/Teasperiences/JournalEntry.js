@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './JournalEntry.css'
+import {Link} from 'react-router-dom'
 
 export default class JournalEntry extends Component {
   constructor(){
@@ -47,7 +48,9 @@ export default class JournalEntry extends Component {
         </select>
         <input name='experience' value={this.state.experience} onChange={this.handleChange} type='text' placeholder='The Experience'></input>
         <input name='flavorNotes' value={this.state.flavorNotes} onChange={this.handleChange} type='text' placeholder='flavor notes'></input>
-        <button onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
+        <Link to='/teasperiences'>
+          <button onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
+        </Link>
       </form> )
   }
 }
