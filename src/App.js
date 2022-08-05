@@ -30,8 +30,9 @@ class App extends Component {
     })
   }
 
-  handleSubmit = (event, entryInfo) => {
+  handleSubmit = (event, info) => {
     event.preventDefault()
+    this.setState({entryInfo: info})
   }
 
 
