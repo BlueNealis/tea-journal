@@ -5,14 +5,15 @@ import TeaCard from './components/TeaCard/TeaCard'
 import NavBar from './components/NavBar/NavBar'
 import HomePage from './components/HomePage'
 import Teasperiences from './components/Teasperiences/Teasperiences'
-import JournalEntry from './components/Teasperiences/'
+import JournalEntry from './components/Teasperiences/JournalEntry'
 import {Link, Route} from 'react-router-dom'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      teaCards: []
+      teaCards: [],
+      teaData: []
     }
   }
 
@@ -24,7 +25,9 @@ class App extends Component {
       let cards = data.teas.map((tea) => {
           return <TeaCard name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
       })
-      this.setState({teaCards: cards})
+      this.setState({teaCards: cards,
+                      teaData: data})
+
     })
   }
 
@@ -34,7 +37,7 @@ render(){
     <div className= 'wrapper'>
       <NavBar />
       <main>
-        <JournalEntry tea={teainfo}/>
+        <JournalEntry teas={this.teaData}/>
         <Teasperiences />
         <HomePage
         title='Welcome To Tea Journal'
