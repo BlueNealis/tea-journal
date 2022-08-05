@@ -5,19 +5,18 @@ export default class JournalEntry extends Component {
   constructor(){
     super()
     this.state = {
-      teaNames: [],
+      teaNames: null,
     }
   }
   setTeas = (teas) => {
     this.setState({teaNames: teas})
   }
 
-    async getTeas() {
-      const names = await this.props.teas.map((tea) => {
-        console.log('hi', tea)
-          return `<option id=${tea.id} value=${tea.name}>${tea.name}</option>`
+    componentDidUpdate() {
+      const names = this.props.teas.map((tea) => {
+          return <option id={tea.id} value={tea.name}>{tea.name}</option>
         })
-        if(!names) {
+        if(!this.state.teaNames){
           this.setTeas(names)
         }
       }
@@ -30,6 +29,7 @@ export default class JournalEntry extends Component {
         <input type='date'/>
         <label>Tea Type: </label>
         <select name='teas' id='tea-select'>
+          <option>Pick a Tea</option>
           {this.state.teaNames}
         </select>
         <input type='text' placeholder='The Experience'></input>
