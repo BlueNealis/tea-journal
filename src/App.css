@@ -34,8 +34,8 @@ button:hover {
   width: 90%;
   height: 80%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 3%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 4%;
   grid-row-gap: 3%;
 }
 
