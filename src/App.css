@@ -13,6 +13,11 @@ button {
   background-color: #88AD8C;
 
 }
+a {
+  text-decoration: none;
+  all: unset;
+  cursor: pointer;
+}
 
 button:hover {
   cursor: pointer;

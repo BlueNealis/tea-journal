@@ -41,13 +41,19 @@ render(){
     <div className= 'wrapper'>
       <NavBar />
       <main>
-        {this.state.teaData && <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>}
+      <Route exact path='/new-entry'>
+        <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>
+      </Route>
+      <Route exact path='/teasperiences'>
         <Teasperiences newEntry={this.state.entryInfo}/>
+      </Route>
+      <Route exact path = '/'>
         <HomePage
         title='Welcome To Tea Journal'
         sub='Lets Learn About Tea'
         content={this.state.teaCards}
         />
+      </Route>
       </main>
     </div>
   )
