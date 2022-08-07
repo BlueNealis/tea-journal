@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import './EntryCard.css'
 
 export default function EntryCard ({teaType, date, description, notes}) {
@@ -11,4 +12,11 @@ export default function EntryCard ({teaType, date, description, notes}) {
         </article>
         <p>{notes}</p>
       </div>)
+}
+
+EntryCard.propTypes = {
+  teaType: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  notes: PropTypes.string
 }
