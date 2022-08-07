@@ -34,23 +34,39 @@ export default class JournalEntry extends Component {
 
   render(){
     return(
-      <form>
-        <h1>{this.state.teaType} Experience</h1>
-        <input  name='date'
-        value={this.state.date}
-        onChange={this.handleChange}
-        type='date'/>
-        <label>Tea Type: </label>
-        <select onChange={this.handleChange} value={this.state.teaType}
-        name='teaType' id='tea-select'>
-          <option>Pick a Tea</option>
-          {this.state.teaNames}
-        </select>
-        <input name='experience' value={this.state.experience} onChange={this.handleChange} type='text' placeholder='The Experience'></input>
-        <input name='flavorNotes' value={this.state.flavorNotes} onChange={this.handleChange} type='text' placeholder='flavor notes'></input>
-        <Link to='/teasperiences'>
-          <button onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
-        </Link>
-      </form> )
+      <div className='form-container'>
+        <form>
+          <h1>{this.state.teaType} Experience</h1>
+          <input className='date-input' name='date'
+          value={this.state.date}
+          onChange={this.handleChange}
+          type='date'/>
+          <br/>
+
+          <label>Tea Type: </label>
+          <select onChange={this.handleChange} value={this.state.teaType}
+          name='teaType' id='tea-select'>
+            <option>Pick a Tea</option>
+            {this.state.teaNames}
+          </select>
+          <br/>
+
+          <input name='experience'
+          value={this.state.experience}
+          onChange={this.handleChange}
+          type='text' placeholder='The Experience'></input>
+          <br/>
+
+          <input name='flavorNotes'
+          value={this.state.flavorNotes}
+          onChange={this.handleChange}
+          type='text' placeholder='flavor notes'></input>
+          <br/>
+          
+          <Link to='/teasperiences'>
+            <button onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
+          </Link>
+        </form>
+      </div>)
   }
 }

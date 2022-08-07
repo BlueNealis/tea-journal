@@ -9,13 +9,9 @@ export default class Teasperiences extends Component {
   }
 
   componentDidUpdate(prevProps,prevState) {
-    // if(prevProps != this.state.props) {
-    //   console.log('heiiiii')
-    //   this.setState({entries: [...this.state.entries, this.props.newEntry]})
-    // }
   }
 
   render(){
-    return(<h1>hi</h1>)
+    return(<div className='entry-container'></div>)
   }
 }

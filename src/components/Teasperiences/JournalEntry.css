@@ -1,4 +1,22 @@
 form {
-  display: flex;
-  flex-direction: column;
+  width: 70%;
+  height: 40%;
+  background-image: url('../TeaCard/texture-paper.jpeg')
+}
+
+input {
+  width: 20%;
+}
+
+select {
+  width: 25%;
+}
+
+.form-container {
+  width: 80vw;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15vh;
 }
