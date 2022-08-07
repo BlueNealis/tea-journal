@@ -34,21 +34,20 @@ class App extends Component {
   }
 
  handleChange = (event, cardID, favorited) => {
+   console.log('cardID:',cardID, 'favorited', favorited)
    if(favorited) {
    let teaInfo = this.state.teaData.find((tea) => {
      if(tea.id === cardID) {
        return tea
      }
-     this.setState({faveTeas: [...this.state.faveTeas, teaInfo]})
    })
+   this.setState({faveTeas: [...this.state.faveTeas, teaInfo]})
  }else{
-   let faveList = this.state.faveTeas.filter((tea) => {
-     tea.id !== cardID
-   })
+   let faveList = this.state.faveTeas.filter(tea => tea.id !== cardID)
    this.setState({faveTeas: faveList})
  }
 
- this.setState({faveCards: faveList.map((tea) => {
+ this.setState({faveCards: this.state.faveTeas.map((tea) => {
    return <TeaCard
    handleChange={this.handleChange}
    id={tea.id} key={tea.id}
@@ -57,6 +56,7 @@ class App extends Component {
    type={tea.type}
    notes={tea.notes} />
  })
+
 })
 
  }
@@ -92,7 +92,7 @@ render(){
           <HomePage
           title='Your Favorites'
           sub=''
-          content={this.state.teaCards}
+          content={this.state.faveCards}
           />
         </Route>
         <Route path='*'>
