@@ -3,6 +3,7 @@ import './JournalEntry.css'
 import {Link} from 'react-router-dom'
 import TextField from '@mui/material/TextField'
 
+
 export default class JournalEntry extends Component {
   constructor(){
     super()
@@ -22,6 +23,7 @@ export default class JournalEntry extends Component {
 
   setTeas = (teas) => {
     this.setState({teaNames: teas})
+    console.log(teas)
   }
 
     componentDidUpdate() {
@@ -55,19 +57,27 @@ export default class JournalEntry extends Component {
             className='input-experience'
            id="outlined-multiline-static"
            label="Experience"
+           variant='filled'
+           rows={4}
+           value={this.state.experience}
+           onChange={this.handleChange}
+           name='experience'
            multiline
          />
           <br/>
 
-          <input className='input-notes'
+          <TextField
+          className='input-notes'
+          id="filled-helperText"
           name='flavorNotes'
+          label='Flavor Notes'
           value={this.state.flavorNotes}
           onChange={this.handleChange}
-          type='text' placeholder='flavor notes'></input>
+          placeholder='flavor notes'/>
           <br/>
 
           <Link to='/teasperiences'>
-            <button onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
+            <button className= 'submit-button' onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
           </Link>
         </form>
       </div>)

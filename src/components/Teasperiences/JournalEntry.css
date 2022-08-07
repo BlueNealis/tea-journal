@@ -1,6 +1,6 @@
 form {
   width: 70%;
-  height: 40%;
+  height: 60%;
   background-image: url('../TeaCard/texture-paper.jpeg')
 }
 
@@ -18,11 +18,19 @@ select {
 
 .input-experience {
   width: 50%;
-  height:20%;
+  height:35%;
 }
 
 .input-notes {
   width: 50%;
+  height: 10%;
+}
+
+.submit-button {
+  border:none;
+  padding: 2%;
+  width: 40%;
+  margin-top: 5%;
 }
 
 .form-container {
