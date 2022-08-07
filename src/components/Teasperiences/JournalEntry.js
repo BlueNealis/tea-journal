@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './JournalEntry.css'
 import {Link} from 'react-router-dom'
+import TextField from '@mui/material/TextField'
 
 export default class JournalEntry extends Component {
   constructor(){
@@ -41,9 +42,8 @@ export default class JournalEntry extends Component {
           value={this.state.date}
           onChange={this.handleChange}
           type='date'/>
-          <br/>
 
-          <label>Tea Type: </label>
+          <label>    Tea Type: </label>
           <select onChange={this.handleChange} value={this.state.teaType}
           name='teaType' id='tea-select'>
             <option>Pick a Tea</option>
@@ -51,18 +51,21 @@ export default class JournalEntry extends Component {
           </select>
           <br/>
 
-          <input name='experience'
-          value={this.state.experience}
-          onChange={this.handleChange}
-          type='text' placeholder='The Experience'></input>
+          <TextField
+            className='input-experience'
+           id="outlined-multiline-static"
+           label="Experience"
+           multiline
+         />
           <br/>
 
-          <input name='flavorNotes'
+          <input className='input-notes'
+          name='flavorNotes'
           value={this.state.flavorNotes}
           onChange={this.handleChange}
           type='text' placeholder='flavor notes'></input>
           <br/>
-          
+
           <Link to='/teasperiences'>
             <button onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
           </Link>
