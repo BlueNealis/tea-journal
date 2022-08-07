@@ -24,16 +24,27 @@ describe('empty spec', () => {
       cy.get('.tea-card').eq(2).should('contain','White Peony')
         .and('contain', "floral")
         .and('contain', "herbal")
-        .and('contain',"Steep at 180° for 3 minutes")
+        .and('contain', "Steep at 180° for 3 minutes")
       cy.get('.tea-card').eq(3).should('contain','Irish Breakfast')
-      .and('contain', "brisk")
-      .and('contain', "malty")
-      .and('contain',"Steep at 212° for 3-5 minutes")
+        .and('contain', "brisk")
+        .and('contain', "malty")
+        .and('contain',"Steep at 212° for 3-5 minutes")
     })
   })
 
   it('Should be able to click on a tea to favorite it', () => {
-
+      cy.get('.card-container').within(()=> {
+        cy.get('.tea-card').eq(0).within(() => {
+          cy.get('.favorite-button').click()
+          cy.should('have.class', 'favorite-button-active')
+        })
+        cy.get('.tea-card').eq(1).within(() => {
+          cy.get('.favorite-button').click()
+          cy.should('have.class', 'favorite-button-active')
+          cy.get('.favorite-button').click()
+          cy.should('not.have.class', 'favorite-button-active')
+        })
+      })
   })
 
   it('Should be able to click on favorites ', () => {
