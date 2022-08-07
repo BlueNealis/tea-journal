@@ -1,17 +1,10 @@
 import React, { Component } from 'react'
+import EntryCard from './EntryCard'
+import './Teasperiences.css';
 
-export default class Teasperiences extends Component {
-  constructor() {
-    super()
-    this.state = {
-      entries: []
-    }
-  }
+export default function Teasperiences({entries}) {
 
-  componentDidUpdate(prevProps,prevState) {
-  }
-
-  render(){
-    return(<div className='entry-container'></div>)
-  }
+    return(<div className='entry-container'>
+    {entries}
+    </div>)
 }

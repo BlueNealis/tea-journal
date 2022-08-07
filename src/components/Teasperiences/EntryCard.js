@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './EntryCard.css'
 
-export default EntryCard = ({teaType, date, description, notes}) => {
+export default function EntryCard ({teaType, date, description, notes}) {
     return(
       <div className='entry-card'>
         <h1>{teaType}</h1>
