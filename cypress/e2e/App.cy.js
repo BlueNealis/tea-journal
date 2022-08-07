@@ -3,7 +3,7 @@ describe('empty spec', () => {
     cy.visit('localhost:3000')
   })
   it('Should welcome user to Tea Journal', () => {
-
+    cy.get()
   })
 
   it('Should show all Teas available', () => {
@@ -23,6 +23,6 @@ describe('empty spec', () => {
   })
 
   it('Should bring user back to homepage if using a url with no Route', ()=> {
-    
+
   })
 })
