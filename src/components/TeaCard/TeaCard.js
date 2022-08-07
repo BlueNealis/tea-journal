@@ -13,8 +13,8 @@ const [toggleClass, setToggleClass] = useState(false)
       <p>Prepartion: {how} </p>
       <div className='card-actions'>
         <button onClick={(event) => {
-          setToggleClass(!toggleClass)
           handleChange(event, id, !toggleClass)
+          setToggleClass(!toggleClass)
         }} className={`favorite-button ${toggleClass ? 'favorite-button-active':''}`}></button>
         <Link to='/new-entry'>
         <button className='entry-button'>New Entry</button>

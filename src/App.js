@@ -33,30 +33,33 @@ class App extends Component {
     })
   }
 
- handleChange = (event, cardID, favorited) => {
-   console.log('cardID:',cardID, 'favorited', favorited)
+ handleChange = async (event, cardID, favorited) => {
    if(favorited) {
    let teaInfo = this.state.teaData.find((tea) => {
      if(tea.id === cardID) {
        return tea
      }
    })
-   this.setState({faveTeas: [...this.state.faveTeas, teaInfo]})
- }else{
+    await this.setState({faveTeas: [...this.state.faveTeas, teaInfo]})
+    this.createFaveCards()
+  } else {
    let faveList = this.state.faveTeas.filter(tea => tea.id !== cardID)
-   this.setState({faveTeas: faveList})
+   await this.setState({faveTeas: faveList})
+   this.createFaveCards()
+  }
+
  }
 
- this.setState({faveCards: this.state.faveTeas.map((tea) => {
-   return <TeaCard
-   handleChange={this.handleChange}
-   id={tea.id} key={tea.id}
-   name={tea.name}
-   how={tea.how}
-   type={tea.type}
-   notes={tea.notes} />
- })
-
+ createFaveCards = () => {
+   this.setState({faveCards: this.state.faveTeas.map((tea) => {
+    return <TeaCard
+    handleChange={this.handleChange}
+    id={tea.id} key={tea.id}
+    name={tea.name}
+    how={tea.how}
+    type={tea.type}
+    notes={tea.notes} />
+  })
 })
 
  }
