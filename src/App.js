@@ -7,7 +7,7 @@ import HomePage from './components/HomePage'
 import Teasperiences from './components/Teasperiences/Teasperiences'
 import JournalEntry from './components/Teasperiences/JournalEntry'
 import EntryCard from './components/Teasperiences/EntryCard'
-import {Link, Route} from 'react-router-dom'
+import {Link, Route, Switch} from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -45,19 +45,36 @@ render(){
     <div className= 'wrapper'>
       <NavBar />
       <main>
-      <Route exact path='/new-entry'>
-        <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>
-      </Route>
-      <Route exact path='/teasperiences'>
-        <Teasperiences entries={this.state.entries}/>
-      </Route>
-      <Route exact path = '/'>
-        <HomePage
-        title='Welcome To Tea Journal'
-        sub='Lets Learn About Tea'
-        content={this.state.teaCards}
-        />
-      </Route>
+      <Switch>
+        <Route exact path='/new-entry'>
+          <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>
+        </Route>
+        <Route exact path='/teasperiences'>
+          <Teasperiences entries={this.state.entries}/>
+        </Route>
+        <Route exact path = '/'>
+          <HomePage
+          title='Welcome To Tea Journal'
+          sub='Lets Learn About Tea'
+          content={this.state.teaCards}
+          />
+        </Route>
+        <Route exact path='/favorites'>
+          <HomePage
+          title='Your Favorites'
+          sub=''
+          content={this.state.teaCards}
+
+          />
+        </Route>
+        <Route path='*'>
+          <HomePage
+          title='Welcome To Tea Journal'
+          sub='Lets Learn About Tea'
+          content={this.state.teaCards}
+          />
+        </Route>
+      </Switch>
       </main>
     </div>
   )
