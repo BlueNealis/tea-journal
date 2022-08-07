@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import './TeaCards.css'
 
-function TeaCard({id,name, notes, how, type, handleChange}) {
+function TeaCard({id, name, notes, how, type, handleChange}) {
 const [toggleClass, setToggleClass] = useState(false)
 
   return(
@@ -28,7 +28,9 @@ export default TeaCard
 
 TeaCard.propTypes = {
   name: PropTypes.string,
-  notes: PropTypes.array,
+  notes: PropTypes.arrayOf(PropTypes.string),
   how: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  handleChange: PropTypes.func,
+  id: PropTypes.number
 }
