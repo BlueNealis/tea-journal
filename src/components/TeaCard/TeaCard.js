@@ -22,3 +22,10 @@ const [toggleClass, setToggleClass] = useState(false)
 }
 
 export default TeaCard
+
+TeaCard.propTypes = {
+  name: PropTypes.string,
+  notes: PropTypes.array,
+  how: PropTypes.string,
+  type: PropTypes.string
+}
