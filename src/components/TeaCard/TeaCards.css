@@ -34,6 +34,18 @@
 
 }
 
+.favorite-button-active {
+  width: 4vw;
+  height: 6vh;
+  background-image: url('./FavoriteTea.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+
+}
+
 .favorite-button:hover {
   background-image: url('./FavoriteTea.svg');
   background-color: transparent;

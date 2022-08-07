@@ -7,7 +7,7 @@ import HomePage from './components/HomePage'
 import Teasperiences from './components/Teasperiences/Teasperiences'
 import JournalEntry from './components/Teasperiences/JournalEntry'
 import EntryCard from './components/Teasperiences/EntryCard'
-import {Link, Route} from 'react-router-dom'
+import {Link, Route, Switch} from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -15,7 +15,9 @@ class App extends Component {
     this.state = {
       teaCards: [],
       teaData: [],
-      entries: []
+      entries: [],
+      faveTeas:[],
+      faveCards:[]
     }
   }
 
@@ -25,12 +27,42 @@ class App extends Component {
     .then(resource => resource.json())
     .then(data => {
       let cards = data.teas.map((tea) => {
-          return <TeaCard name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
+          return <TeaCard handleChange={this.handleChange} id={tea.id} key={tea.id} name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
       })
       this.setState({teaCards: cards, teaData: data.teas})
     })
   }
 
+ handleChange = async (event, cardID, favorited) => {
+   if(favorited) {
+   let teaInfo = this.state.teaData.find((tea) => {
+     if(tea.id === cardID) {
+       return tea
+     }
+   })
+    await this.setState({faveTeas: [...this.state.faveTeas, teaInfo]})
+    this.createFaveCards()
+  } else {
+   let faveList = this.state.faveTeas.filter(tea => tea.id !== cardID)
+   await this.setState({faveTeas: faveList})
+   this.createFaveCards()
+  }
+
+ }
+
+ createFaveCards = () => {
+   this.setState({faveCards: this.state.faveTeas.map((tea) => {
+    return <TeaCard
+    handleChange={this.handleChange}
+    id={tea.id} key={tea.id}
+    name={tea.name}
+    how={tea.how}
+    type={tea.type}
+    notes={tea.notes} />
+  })
+})
+
+ }
   handleSubmit = (event, info) => {
     this.setState({entries: [...this.state.entries, <EntryCard
       teaType={info.teaType}
@@ -45,19 +77,35 @@ render(){
     <div className= 'wrapper'>
       <NavBar />
       <main>
-      <Route exact path='/new-entry'>
-        <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>
-      </Route>
-      <Route exact path='/teasperiences'>
-        <Teasperiences entries={this.state.entries}/>
-      </Route>
-      <Route exact path = '/'>
-        <HomePage
-        title='Welcome To Tea Journal'
-        sub='Lets Learn About Tea'
-        content={this.state.teaCards}
-        />
-      </Route>
+      <Switch>
+        <Route exact path='/new-entry'>
+          <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>
+        </Route>
+        <Route exact path='/teasperiences'>
+          <Teasperiences entries={this.state.entries}/>
+        </Route>
+        <Route exact path = '/'>
+          <HomePage
+          title='Welcome To Tea Journal'
+          sub='Lets Learn About Tea'
+          content={this.state.teaCards}
+          />
+        </Route>
+        <Route exact path='/favorites'>
+          <HomePage
+          title='Your Favorites'
+          sub=''
+          content={this.state.faveCards}
+          />
+        </Route>
+        <Route path='*'>
+          <HomePage
+          title='Welcome To Tea Journal'
+          sub='Lets Learn About Tea'
+          content={this.state.teaCards}
+          />
+        </Route>
+      </Switch>
       </main>
     </div>
   )

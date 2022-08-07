@@ -26,13 +26,11 @@ export default class JournalEntry extends Component {
     console.log(teas)
   }
 
-    componentDidUpdate() {
-      const names = this.props.teas.map((tea) => {
+    async componentDidMount() {
+      const names = await this.props.teas.map((tea) => {
           return <option id={tea.id} value={tea.name}>{tea.name}</option>
         })
-        if(!this.state.teaNames){
           this.setTeas(names)
-        }
       }
 
   render(){
