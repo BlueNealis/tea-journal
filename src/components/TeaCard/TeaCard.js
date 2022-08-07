@@ -11,7 +11,7 @@ const [toggleClass, setToggleClass] = useState(false)
       <p>This tea is described as {notes[0]}, and {notes[1]}</p>
       <p>Prepartion: {how} </p>
       <div className='card-actions'>
-        <button onClick={setToggleClass} className={`favorite-button ${toggleClass ? 'favorite-button-active':''}`}></button>
+        <button onClick={() => setToggleClass(!toggleClass)} className={`favorite-button ${toggleClass ? 'favorite-button-active':''}`}></button>
         <Link to='/new-entry'>
         <button className='entry-button'>New Entry</button>
         </Link>
