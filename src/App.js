@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       teaCards: [],
       teaData: [],
-      entries: []
+      entries: [],
+      faveCards:[]
     }
   }
 
@@ -29,6 +30,10 @@ class App extends Component {
       })
       this.setState({teaCards: cards, teaData: data.teas})
     })
+  }
+
+  componentDidUpdate(prevState) {
+
   }
 
   handleSubmit = (event, info) => {
@@ -64,7 +69,6 @@ render(){
           title='Your Favorites'
           sub=''
           content={this.state.teaCards}
-
           />
         </Route>
         <Route path='*'>
