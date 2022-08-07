@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import './JournalEntry.css'
 import {Link} from 'react-router-dom'
+import TextField from '@mui/material/TextField'
+
 
 export default class JournalEntry extends Component {
   constructor(){
@@ -21,6 +23,7 @@ export default class JournalEntry extends Component {
 
   setTeas = (teas) => {
     this.setState({teaNames: teas})
+    console.log(teas)
   }
 
     componentDidUpdate() {
@@ -34,23 +37,49 @@ export default class JournalEntry extends Component {
 
   render(){
     return(
-      <form>
-        <h1>{this.state.teaType} Experience</h1>
-        <input  name='date'
-        value={this.state.date}
-        onChange={this.handleChange}
-        type='date'/>
-        <label>Tea Type: </label>
-        <select onChange={this.handleChange} value={this.state.teaType}
-        name='teaType' id='tea-select'>
-          <option>Pick a Tea</option>
-          {this.state.teaNames}
-        </select>
-        <input name='experience' value={this.state.experience} onChange={this.handleChange} type='text' placeholder='The Experience'></input>
-        <input name='flavorNotes' value={this.state.flavorNotes} onChange={this.handleChange} type='text' placeholder='flavor notes'></input>
-        <Link to='/teasperiences'>
-          <button onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
-        </Link>
-      </form> )
+      <div className='form-container'>
+        <form>
+          <h1>{this.state.teaType} Experience</h1>
+          <input className='date-input' name='date'
+          value={this.state.date}
+          onChange={this.handleChange}
+          type='date'/>
+
+          <label>    Tea Type: </label>
+          <select onChange={this.handleChange} value={this.state.teaType}
+          name='teaType' id='tea-select'>
+            <option>Pick a Tea</option>
+            {this.state.teaNames}
+          </select>
+          <br/>
+
+          <TextField
+            className='input-experience'
+           id="outlined-multiline-static"
+           label="Experience"
+           variant='filled'
+           rows={4}
+           value={this.state.experience}
+           onChange={this.handleChange}
+           name='experience'
+           multiline
+         />
+          <br/>
+
+          <TextField
+          className='input-notes'
+          id="filled-helperText"
+          name='flavorNotes'
+          label='Flavor Notes'
+          value={this.state.flavorNotes}
+          onChange={this.handleChange}
+          placeholder='flavor notes'/>
+          <br/>
+
+          <Link to='/teasperiences'>
+            <button className= 'submit-button' onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
+          </Link>
+        </form>
+      </div>)
   }
 }

@@ -8,10 +8,12 @@ function TeaCard({name, notes, how, type}) {
       <h1>{name}</h1>
       <p>This tea is described as {notes[0]}, and {notes[1]}</p>
       <p>Prepartion: {how} </p>
-      <Link to='/new-entry'>
+      <div className='card-actions'>
+        <button className='favorite-button'></button>
+        <Link to='/new-entry'>
         <button className='entry-button'>New Entry</button>
-      </Link>
-      <button> Favorite </button>
+        </Link>
+      </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar'
 import HomePage from './components/HomePage'
 import Teasperiences from './components/Teasperiences/Teasperiences'
 import JournalEntry from './components/Teasperiences/JournalEntry'
+import EntryCard from './components/Teasperiences/EntryCard'
 import {Link, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
     this.state = {
       teaCards: [],
       teaData: [],
-      entryInfo: {}
+      entries: []
     }
   }
 
@@ -31,8 +32,11 @@ class App extends Component {
   }
 
   handleSubmit = (event, info) => {
-    event.preventDefault()
-    this.setState({entryInfo: info})
+    this.setState({entries: [...this.state.entries, <EntryCard
+      teaType={info.teaType}
+      date={info.date}
+      description={info.experience}
+      notes={info.flavorNotes}/>]})
   }
 
 
@@ -45,7 +49,7 @@ render(){
         <JournalEntry handleSubmit={this.handleSubmit} teas={this.state.teaData}/>
       </Route>
       <Route exact path='/teasperiences'>
-        <Teasperiences newEntry={this.state.entryInfo}/>
+        <Teasperiences entries={this.state.entries}/>
       </Route>
       <Route exact path = '/'>
         <HomePage

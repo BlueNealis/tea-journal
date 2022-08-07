@@ -1,6 +1,6 @@
 .tea-card {
   background-image: url('./texture-paper.jpeg');
-  width: 100%;
+  width: 22vw;
   height: 30vh;
   border-radius: 2%;
   text-align: center;
@@ -14,6 +14,27 @@
 
 .entry-button {
   border: none;
-  padding: 5%;
-  margin-left: 45%;
+  padding: 7%;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.favorite-button {
+  width: 4vw;
+  height: 6vh;
+  background-image: url('./NotFavorite.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+
+}
+
+.favorite-button:hover {
+  background-image: url('./FavoriteTea.svg');
+  background-color: transparent;
 }
