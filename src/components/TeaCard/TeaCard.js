@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import './TeaCards.css'
 
-function TeaCard({name, notes, how, type}) {
+function TeaCard({id,name, notes, how, type, handleChange}) {
 const [toggleClass, setToggleClass] = useState(false)
 
   return(
@@ -12,7 +12,10 @@ const [toggleClass, setToggleClass] = useState(false)
       <p>This tea is described as {notes[0]}, and {notes[1]}</p>
       <p>Prepartion: {how} </p>
       <div className='card-actions'>
-        <button onClick={() => setToggleClass(!toggleClass)} className={`favorite-button ${toggleClass ? 'favorite-button-active':''}`}></button>
+        <button onClick={(event) => {
+          handleChange(event, id)
+          setToggleClass(!toggleClass)
+        }} className={`favorite-button ${toggleClass ? 'favorite-button-active':''}`}></button>
         <Link to='/new-entry'>
         <button className='entry-button'>New Entry</button>
         </Link>

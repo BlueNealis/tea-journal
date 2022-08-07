@@ -16,6 +16,7 @@ class App extends Component {
       teaCards: [],
       teaData: [],
       entries: [],
+      faveTeas:[],
       faveCards:[]
     }
   }
@@ -26,16 +27,39 @@ class App extends Component {
     .then(resource => resource.json())
     .then(data => {
       let cards = data.teas.map((tea) => {
-          return <TeaCard name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
+          return <TeaCard handleChange={this.handleChange} id={tea.id} key={tea.id} name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
       })
       this.setState({teaCards: cards, teaData: data.teas})
     })
   }
 
-  componentDidUpdate(prevState) {
+ handleChange = (event, cardID, favorited) => {
+   if(favorited) {
+   let teaInfo = this.state.teaData.find((tea) => {
+     if(tea.id === cardID) {
+       return tea
+     }
+     this.setState({faveTeas: [...this.state.faveTeas, teaInfo]})
+   })
+ }else{
+   let faveList = this.state.faveTeas.filter((tea) => {
+     tea.id !== cardID
+   })
+   this.setState({faveTeas: faveList})
+ }
 
-  }
+ this.setState({faveCards: faveList.map((tea) => {
+   return <TeaCard
+   handleChange={this.handleChange}
+   id={tea.id} key={tea.id}
+   name={tea.name}
+   how={tea.how}
+   type={tea.type}
+   notes={tea.notes} />
+ })
+})
 
+ }
   handleSubmit = (event, info) => {
     this.setState({entries: [...this.state.entries, <EntryCard
       teaType={info.teaType}
