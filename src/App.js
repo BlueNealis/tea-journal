@@ -24,7 +24,12 @@ class App extends Component {
   componentDidMount() {
 
     fetch('https://tea-list-api.herokuapp.com/api/v1/teas')
-    .then(resource => resource.json())
+    .then(response => {
+      if(!response.ok){
+          <Link to='/error'/>
+          return
+        }
+      return response.json()})
     .then(data => {
       let cards = data.teas.map((tea) => {
           return <TeaCard handleChange={this.handleChange} id={tea.id} key={tea.id} name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
@@ -97,6 +102,13 @@ render(){
           sub=''
           content={this.state.faveCards}
           />
+        </Route>
+        <Route path='/error'>
+        <HomePage
+        title='Sorry there is problem with the server please try again later'
+        sub=''
+        content={{}}
+        />
         </Route>
         <Route path='*'>
           <HomePage

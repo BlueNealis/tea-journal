@@ -53,7 +53,7 @@ describe('empty spec', () => {
       fixture: '../fixtures/teas.json',
       response: 504
     })
-    cy.contains('Sorry Server Error Please Try Again Later')
+    cy.contains('Sorry there is problem with the server please try again later')
 
   })
 
