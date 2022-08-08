@@ -33,11 +33,13 @@
 Checkout the website [here](https://tea-journal.herokuapp.com/)
 
 ### Features
-![Tea Journal](src/MoldyPears-illustration.gif)
+![Tea Journal](src/homepage.gif)
 - User can scroll through and read about different teas
 - When user clicks new entry it takes them to a form to enter info about a tea experience
+![Form](src/form.gif)
 - User can click home and it will direct them to the home screen
 - User can favorite teas and view them in favorite table
+![favorites](src/favorites.gif)
 - User can add entries to their teasperiences
 
 ### Future Features
