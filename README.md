@@ -1,4 +1,4 @@
-![MoldyPear](src/PearLogo.png)
+![Tea Journal](src/components/TeaCard/FavoriteTea.svg)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -6,14 +6,13 @@
 - [Set Up](#set-up)
 - [Deployment Link](#deployment-link)
 - [Features](#features)
-- [Reflection](#reflection)
 - [Future Features](#future-features)
 - [Contributors](#contributors)
 - [Project Specifications](#project-specifications)
 
 ### Introduction
 
-**Moldy Pears** Here to help you find your next entertainment fix!  Scroll through and find the ranked movie that so fits your desire.  
+**Tea Journal** Discover new teas to try, and document your tea experiences!
 
 ### Technologies
 - JavaScript
@@ -24,38 +23,33 @@
 - CSS
 
 ### Set Up
-1. Clone this [repository](https://github.com/Baskanbetul/rancid-tomatillos).
+1. Clone this [repository](https://github.com/BlueNealis/tea-journal).
 2. `cd` into the directory.
 3. Run `npm i install`.
 4. Run `npm start`.
 
 ### Deployment Link
 
+Checkout the website [here](https://tea-journal.herokuapp.com/)
+
 ### Features
-![MoldyPears](src/MoldyPears-illustration.gif)
-- User can scroll through and pick a movie to get more info on
-- When user clicks on a movie it redirects them to a new webpage.
-- User can click the Moldy Pears icon and return back to the home page.
-- Movie detail pages include a trailer the user can watch to get a taste of the movie
-
-### Reflections
-- During this project we learned how to research and implement new technologies in a short amount of time. By taking time to research what we needed from the new technologies we were able to implement them in a more timely manner.
-- Although the learning curve for cypress was a bit steep at first, it was extremely rewarding.  Cypress made it possible to test error handling with our server, and made sure we could test different user flows.
-
+![Tea Journal](src/MoldyPears-illustration.gif)
+- User can scroll through and read about different teas
+- When user clicks new entry it takes them to a form to enter info about a tea experience
+- User can click home and it will direct them to the home screen
+- User can favorite teas and view them in favorite table
+- User can add entries to their teasperiences
 
 ### Future Features
-- A search bar to search for movies and have them live filter.
-- Categories of genre
-- Organization by cast
-- User login
-- User can save movies they've watched and input their own rating
-- User can put movies in a future queue
-- User can put movies in a favorite section
+- User can filter through their teasperiences by date or tea type
+- tea cards have images
+- users can have a login and see their stored teasperiences
+- User can see where to buy tea near them
+- A how to section with details on how to make tea
 
 ### Contributors
-- [Betul Baskan](https://github.com/Baskanbetul)[LinkedIn](https://www.linkedin.com/in/betul-baskan-9835481b9/)
 - [Blue Nealis](https://github.com/BlueNealis/)[LinkedIn](https://www.linkedin.com/in/blue-nealis/)
 
 
 ### Project Specifications
-- Project specs are located [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html).
+- Project specs are located [here](https://frontend.turing.edu/projects/module-3/showcase.html).
