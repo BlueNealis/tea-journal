@@ -16,7 +16,7 @@ export default class NavBar extends Component {
       </Link>
         <ButtonTab linkto= '/teasperiences' title='My Teasperiences'/>
         <ButtonTab linkto='/favorites' title='My Favorite Teas'/>
-        <ButtonTab title='How To - A Guide to Brewing Tea'/>
+        <ButtonTab linkto='/new-entry' title='Add A Tea Experience Entry'/>
         <ButtonTab title='Where to buy tea near me'/>
       </header> )
   }
