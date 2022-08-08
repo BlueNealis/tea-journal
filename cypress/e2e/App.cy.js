@@ -47,16 +47,6 @@ describe('empty spec', () => {
       })
   })
 
-  it('Should tell user if the server is down', () => {
-    cy.intercept('https://tea-list-api.herokuapp.com/api/v1/teas',{
-      method: 'GET',
-      fixture: '../fixtures/teas.json',
-      response: 504
-    })
-    cy.contains('Sorry there is problem with the server please try again later')
-
-  })
-
   it('Should bring user back to homepage if using a url with no Route', ()=> {
     cy.visit('localhost:3000/potatoes')
     cy.contains('Welcome To Tea Journal')

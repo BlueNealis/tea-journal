@@ -35,10 +35,9 @@ it('should be able to select a Tea and update the form to reflect that', () => {
       cy.get('select').select('White Peony')
       cy.get('.date-input').type('2022-08-08')
       cy.get('.input-notes').type('fresh, green')
-      cy.get('.submit-button').click()
+      cy.get('.submit-button').should('be.disabled')
     })
-    cy.contains('Please fill out all fields')
-    cy.url('localhost:3000/new-entry')
+    cy.url().should('eq','http://localhost:3000/new-entry')
   })
 
   it('should redirect to teasperiences page when the user submits their entry', () => {
