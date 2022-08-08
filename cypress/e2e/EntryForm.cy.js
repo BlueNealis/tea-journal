@@ -1,14 +1,11 @@
 describe('empty spec', () => {
-  beforeEach('passes', () => {
+  beforeEach(() => {
     cy.visit('localhost:3000')
-    cy.intercept('https://tea-list-api.herokuapp.com/api/v1/teas',{
-      method: 'GET',
-      fixture: '../fixtures/teas.json'
-    })
-    cy.visit('localhost:3000/new-entry')
+    cy.intercept("GET",'https://tea-list-api.herokuapp.com/api/v1/teas',{ fixture: '../fixtures/teas.json'})
+    cy.get('.tea-card').eq(2).find('.entry-button').click()
   })
 
-  it('should be able to select a Tea and update the form to reflect that', () => {
+it('should be able to select a Tea and update the form to reflect that', () => {
     cy.get('form').within(() => {
       cy.get('select').select('White Peony')
       cy.contains('White Peony')
