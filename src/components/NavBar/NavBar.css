@@ -2,6 +2,7 @@ header {
   background-color: #5C8260;
   width: 20%;
   height: 100vh;
+  overflow: visible;
   text-align: center;
   display:flex;
   flex-direction: column;
@@ -9,4 +10,14 @@ header {
 
 .home {
   margin-bottom: 30%;
+}
+
+@media (max-width: 500px) {
+  header {
+    font-size: 2rem;
+    width: 30%;
+  }
+  .home {
+    font-size: 1rem;
+  }
 }

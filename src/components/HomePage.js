@@ -8,7 +8,7 @@ class HomePage extends Component {
   }
 
   render(){
-    return(<div>
+    return(<div className='homepage'>
           <h1 className='title'>{this.props.title}</h1>
           <h2 className='title-main, title'>{this.props.sub}</h2>
           <div className='card-container'>

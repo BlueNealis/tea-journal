@@ -1,7 +1,6 @@
 .tea-card {
   background-image: url('./texture-paper.jpeg');
   width: 22vw;
-  height: 30vh;
   border-radius: 2%;
   text-align: center;
   padding: 2%;
@@ -48,4 +47,24 @@
 .favorite-button:hover {
   background-image: url('./FavoriteTea.svg');
   background-color: transparent;
+}
+
+@media (max-width: 500px) {
+  .tea-card {
+    height:20vh;
+    width:25vw;
+    font-size: .8rem;
+    overflow: scroll;
+  }
+  .tea-card-title {
+    font-size: .8rem;
+  }
+
+  p {
+    font-size-adjust: auto;
+  }
+
+  .favorite-button {
+    z-index: 1;
+  }
 }

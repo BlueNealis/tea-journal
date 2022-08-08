@@ -32,12 +32,28 @@ button:hover {
 
 .card-container {
   margin-left: 6%;
-  width: 90%;
+  width: 80%;
   height: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 4%;
+  grid-column-gap: 3%;
   grid-row-gap: 3%;
+}
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 500px) {
+  .card-container {
+    width: 60%;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 1%;
+  }
+
+  .homepage {
+    align-items: center;
+  }
 }
 
 .title-main {
