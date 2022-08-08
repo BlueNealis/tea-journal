@@ -1,0 +1,4 @@
+{"teas":[{"id": 1, "name":"Yunnan Gold", "type":"black" , "notes":["pepper","chocolate","round"] , "where":"Yunnan province", "how":"Steep at 212° for 3-5 minutes" },
+    {"id": 2, "name":"Silver Needle" , "type":"white" , "notes":["nutty","floral","sweet"] , "where": "Fuding Fujian province", "how":"Steep at 180° for 3 minutes" },
+    {"id": 3, "name":"White Peony" , "type":"white","notes":["floral","herbal", "round"], "where":"Zhenghe town in Fujian Province","how":"Steep at 180° for 3 minutes"},
+    {"id": 4, "name":"Irish Breakfast" , "type":"black", "notes":["brisk", "malty", "oak", "citrus" ] , "where":"Sri Lanka and Assam", "how": "Steep at 212° for 3-5 minutes"}]}
