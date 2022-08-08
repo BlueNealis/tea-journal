@@ -62,9 +62,9 @@ it('should be able to select a Tea and update the form to reflect that', () => {
       cy.url('localhost:3000/teasperiences')
       cy.visit('localhost:3000/new-entry')
       cy.get('form').within(() => {
-        cy.get('.date-input').should('be.empty')
-        cy.get('.input-experience').should('be.empty')
-        cy.get('.input-notes').should('be.empty')
+        cy.get('.date-input').should('not.have.value','2022-08-08' )
+        cy.get('.input-experience').should('not.have.value', 'Eloquent')
+        cy.get('.input-notes').should('not.have.value', 'fresh,green')
       })
   })
 

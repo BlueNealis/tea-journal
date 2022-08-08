@@ -37,6 +37,11 @@ export default class JournalEntry extends Component {
     console.log(teas)
   }
 
+  resetFields = () => {
+    this.setState({experience: '',
+  flavorNotes:'', teaType:'', date:'', })
+  }
+
     async componentDidMount() {
       const names = await this.props.teas.map((tea) => {
           return <option id={tea.id} value={tea.name}>{tea.name}</option>
@@ -86,7 +91,10 @@ export default class JournalEntry extends Component {
           <br/>
           <h3 style={{fontSize: '1rem'}}>{this.state.errorMessage}</h3>
           <Link to='/teasperiences'>
-            <button className='submit-button' disabled={this.state.disabled} onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
+            <button className='submit-button' disabled={this.state.disabled} onClick={event => {
+
+              this.props.handleSubmit(event, this.state)
+            }}>Submit</button>
           </Link>
         </form>
       </div>)
