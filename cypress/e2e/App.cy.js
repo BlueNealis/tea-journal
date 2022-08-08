@@ -32,7 +32,7 @@ describe('empty spec', () => {
     })
   })
 
-  it('Should be able to click on a tea to favorite it', () => {
+  it('Should be able to click on a tea to favorite it and unfavorite', () => {
       cy.get('.card-container').within(()=> {
         cy.get('.tea-card').eq(0).within(() => {
           cy.get('.favorite-button').click()
@@ -47,15 +47,21 @@ describe('empty spec', () => {
       })
   })
 
-  it('Should be able to click on favorites ', () => {
-
-  })
-
   it('Should tell user if the server is down', () => {
+    cy.intercept('https://tea-list-api.herokuapp.com/api/v1/teas',{
+      method: 'GET',
+      fixture: '../fixtures/teas.json',
+      response: 504
+    })
+    cy.contains('Sorry Server Error Please Try Again Later')
 
   })
 
   it('Should bring user back to homepage if using a url with no Route', ()=> {
-
+    cy.visit('localhost:3000/potatoes')
+    cy.contains('Welcome To Tea Journal')
+    cy.get('.card-container').within(()=> {
+      cy.get('.tea-card').should('have.length', 4)
+    })
   })
 })
