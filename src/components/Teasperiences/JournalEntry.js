@@ -13,12 +13,22 @@ export default class JournalEntry extends Component {
       flavorNotes:'',
       teaType:'',
       date:'',
+      disabled: true
     }
   }
 
-  handleChange = (event) => {
+  checkForm = () => {
+    if(this.state.teaNames && this.state.experience && this.state.flavorNotes && this.state.teaType && this.state.date){
+      this.setState({disabled: false})
+    }else {
+      this.setState({disabled: true})
+    }
+  }
+
+  handleChange = async (event) => {
     const {name, value} = event.target
-    this.setState({[name]: value})
+    await this.setState({[name]: value})
+    this.checkForm()
   }
 
   setTeas = (teas) => {
@@ -75,7 +85,7 @@ export default class JournalEntry extends Component {
           <br/>
 
           <Link to='/teasperiences'>
-            <button className= 'submit-button' onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
+            <button className='submit-button' disabled={this.state.disabled} onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
           </Link>
         </form>
       </div>)

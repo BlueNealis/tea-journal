@@ -98,6 +98,13 @@ render(){
           content={this.state.faveCards}
           />
         </Route>
+        <Route path='/error'>
+        <HomePage
+        title='Sorry there is problem with the server please try again later'
+        sub=''
+        content={}
+        />
+        </Route>
         <Route path='*'>
           <HomePage
           title='Welcome To Tea Journal'
