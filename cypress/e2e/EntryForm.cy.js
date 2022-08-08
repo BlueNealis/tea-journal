@@ -1,9 +1,18 @@
 describe('empty spec', () => {
   beforeEach('passes', () => {
+    cy.visit('localhost:3000')
+    cy.intercept('https://tea-list-api.herokuapp.com/api/v1/teas',{
+      method: 'GET',
+      fixture: '../fixtures/teas.json'
+    })
     cy.visit('localhost:3000/new-entry')
   })
-  it('should be able to select a Tea and update the form to reflect that', () => {
 
+  it('should be able to select a Tea and update the form to reflect that', () => {
+    cy.get('form').within(() => {
+      cy.get('select').select('White Peony')
+      cy.contains('White Peony')
+    })
   })
 
   it('should have all teas in option list on page load', () => {
@@ -25,5 +34,5 @@ describe('empty spec', () => {
   it('should clear the form after the entry is submitted', () => {
 
   })
-  
+
 })

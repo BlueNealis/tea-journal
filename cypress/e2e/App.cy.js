@@ -5,7 +5,7 @@ describe('empty spec', () => {
       method: 'GET',
       fixture: '../fixtures/teas.json'
     })
-  })
+    })
   it('Should welcome user to Tea Journal', () => {
     cy.contains('Welcome To Tea Journal')
   })
