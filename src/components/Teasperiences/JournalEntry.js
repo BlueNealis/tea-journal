@@ -13,7 +13,8 @@ export default class JournalEntry extends Component {
       flavorNotes:'',
       teaType:'',
       date:'',
-      disabled: true
+      disabled: true,
+      errorMessage: '**Please fill out all fields'
     }
   }
 
@@ -83,7 +84,7 @@ export default class JournalEntry extends Component {
           onChange={this.handleChange}
           placeholder='flavor notes'/>
           <br/>
-
+          <h3 style={{fontSize: '1rem'}}>{this.state.errorMessage}</h3>
           <Link to='/teasperiences'>
             <button className='submit-button' disabled={this.state.disabled} onClick={event => this.props.handleSubmit(event, this.state)}>Submit</button>
           </Link>
