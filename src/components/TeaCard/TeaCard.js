@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import './TeaCards.css'
 
-function TeaCard({id, name, notes, how, type, handleChange}) {
-const [toggleClass, setToggleClass] = useState(false)
+function TeaCard({id, name, notes, how, type, handleChange, initialClass}) {
+const [toggleClass, setToggleClass] = useState(initialClass)
 
   return(
     <div className='tea-card'>

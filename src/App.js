@@ -32,7 +32,14 @@ class App extends Component {
       return response.json()})
     .then(data => {
       let cards = data.teas.map((tea) => {
-          return <TeaCard handleChange={this.handleChange} id={tea.id} key={tea.id} name={tea.name} how={tea.how} type={tea.type} notes={tea.notes} />
+          return <TeaCard handleChange={this.handleChange}
+          initialClass={false}
+          id={tea.id}
+          key={tea.id}
+          name={tea.name}
+          how={tea.how}
+          type={tea.type}
+          notes={tea.notes} />
       })
       this.setState({teaCards: cards, teaData: data.teas})
     })
@@ -59,6 +66,7 @@ class App extends Component {
    this.setState({faveCards: this.state.faveTeas.map((tea) => {
     return <TeaCard
     handleChange={this.handleChange}
+    initialClass={true}
     id={tea.id} key={tea.id}
     name={tea.name}
     how={tea.how}
