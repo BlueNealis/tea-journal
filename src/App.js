@@ -70,6 +70,8 @@ class App extends Component {
  }
   handleSubmit = (event, info) => {
     this.setState({entries: [...this.state.entries, <EntryCard
+      key={this.state.entries.length + 1}
+      id={this.state.entries.length + 1}
       teaType={info.teaType}
       date={info.date}
       description={info.experience}
