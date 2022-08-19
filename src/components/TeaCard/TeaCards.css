@@ -4,7 +4,6 @@
   border-radius: 2%;
   text-align: center;
   padding: 2%;
-
 }
 
 .tea-card:hover {
@@ -13,12 +12,18 @@
 
 .entry-button {
   border: none;
-  padding: 7%;
+  padding: 5%;
+  margin-left: 65%;
 }
 
-.card-actions {
-  display: flex;
-  justify-content: space-around;
+.tea-description {
+  font-size: 1.1rem;
+  font-weight: 500;
+  white-space: pre-wrap;
+  background-color:rgb(255,255,255,0.5);
+  padding:3%;
+  height: 10vh;
+  margin-bottom:2%;
 }
 
 .favorite-button {
@@ -30,7 +35,7 @@
   background-color: transparent;
   border: none;
   background-position: center;
-
+  margin-right: 65%;
 }
 
 .favorite-button-active {

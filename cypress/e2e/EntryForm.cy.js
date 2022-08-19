@@ -1,7 +1,7 @@
 describe('empty spec', () => {
   beforeEach(() => {
-    cy.visit('localhost:3000')
     cy.intercept("GET",'https://tea-list-api.herokuapp.com/api/v1/teas',{ fixture: '../fixtures/teas.json'})
+    cy.visit('localhost:3000')
     cy.get('.tea-card').eq(2).find('.entry-button').click()
   })
 

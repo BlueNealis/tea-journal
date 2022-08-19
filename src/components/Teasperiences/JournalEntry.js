@@ -34,7 +34,6 @@ export default class JournalEntry extends Component {
 
   setTeas = (teas) => {
     this.setState({teaNames: teas})
-    console.log(teas)
   }
 
   resetFields = () => {
@@ -44,7 +43,7 @@ export default class JournalEntry extends Component {
 
     async componentDidMount() {
       const names = await this.props.teas.map((tea) => {
-          return <option id={tea.id} value={tea.name}>{tea.name}</option>
+          return <option key={tea.id} id={tea.id} value={tea.name}>{tea.name}</option>
         })
           this.setTeas(names)
       }
