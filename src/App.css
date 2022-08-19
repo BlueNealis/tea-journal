@@ -27,6 +27,7 @@ button:hover {
 
 .wrapper {
   display: flex;
+  height: 100%;
 }
 
 .card-container {

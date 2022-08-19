@@ -89,7 +89,7 @@ class App extends Component {
 
 render(){
   return (
-    <div className= 'wrapper'>
+    <div className='wrapper'>
       <NavBar />
       <main>
       <Switch>
