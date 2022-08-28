@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { useState, useEffect} from 'react'
 import './App.css';
 import TeaCard from './components/TeaCard/TeaCard'
 import NavBar from './components/NavBar/NavBar'
@@ -9,19 +9,14 @@ import JournalEntry from './components/Teasperiences/JournalEntry'
 import EntryCard from './components/Teasperiences/EntryCard'
 import {Link, Route, Switch} from 'react-router-dom'
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      teaCards: [],
-      teaData: [],
-      entries: [],
-      faveTeas:[],
-      faveCards:[]
-    }
-  }
+function App() {
+      const [teaCards] = useState([])
+      const [entries] = useState([])
+      const [faveTeas] = useState([])
+      const [faveCards] = useState([])
+      const [teaData] = useState([])
 
-  componentDidMount() {
+useEffect = (() => {
 
     fetch('https://tea-list-api.herokuapp.com/api/v1/teas')
     .then(response => {
@@ -37,13 +32,14 @@ class App extends Component {
           id={tea.id}
           key={tea.id}
           name={tea.name}
+          img={tea.img}
           how={tea.how}
           type={tea.type}
           notes={tea.notes} />
       })
       this.setState({teaCards: cards, teaData: data.teas})
     })
-  }
+  }, [])
 
  handleChange = async (event, cardID, favorited) => {
    if(favorited) {
@@ -68,6 +64,7 @@ class App extends Component {
     handleChange={this.handleChange}
     initialClass={true}
     id={tea.id} key={tea.id}
+    img={tea.img}
     name={tea.name}
     how={tea.how}
     type={tea.type}

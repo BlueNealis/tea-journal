@@ -16,6 +16,11 @@
   margin-left: 65%;
 }
 
+.tea-img {
+  width: 50%;
+  height: 35%;
+}
+
 .tea-description {
   font-size: 1.1rem;
   font-weight: 500;
