@@ -10,11 +10,11 @@ import EntryCard from './components/Teasperiences/EntryCard'
 import {Link, Route, Switch} from 'react-router-dom'
 
 function App() {
-      const [teaCards] = useState([])
+      const [teaCards, setTeaCards] = useState([])
       const [entries] = useState([])
       const [faveTeas] = useState([])
       const [faveCards] = useState([])
-      const [teaData] = useState([])
+      const [teaData, setTeaData] = useState([])
 
 useEffect = (() => {
 
@@ -37,7 +37,8 @@ useEffect = (() => {
           type={tea.type}
           notes={tea.notes} />
       })
-      this.setState({teaCards: cards, teaData: data.teas})
+      setTeaCards(cards)
+      setTeaData(data.teas)
     })
   }, [])
 
@@ -84,7 +85,6 @@ useEffect = (() => {
   }
 
 
-render(){
   return (
     <div className='wrapper'>
       <NavBar />
@@ -128,7 +128,6 @@ render(){
       </main>
     </div>
   )
-}
 }
 
 export default App;
